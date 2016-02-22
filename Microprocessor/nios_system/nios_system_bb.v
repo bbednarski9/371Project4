@@ -1,12 +1,10 @@
 
 module nios_system (
-	clk_clk,
 	reset_reset_n,
-	switches_export,
-	leds_export);	
+	ledr_export,
+	clk_clk);	
 
-	input		clk_clk;
 	input		reset_reset_n;
-	input	[7:0]	switches_export;
-	output	[7:0]	leds_export;
+	output	[7:0]	ledr_export;
+	input		clk_clk;
 endmodule
