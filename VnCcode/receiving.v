@@ -22,13 +22,13 @@ module receiving (clk, reset, data_in, data_out);
 	wire 		buffer_out, enable, characterReceived;
 	wire [9:0] 	SR_out;
 	wire [3:0] 	bitID, bitSample;
+	
+	assign data_out = SR_out;
+	assign charReceived = characterReceived;
 
 	serial_buffer 		input_buffer	(clk, reset, data_in, buffer_out);
 	SIPO 				shift_register 	(SR_out, SRclk, reset, buffer_out);
 	startBit			start_bit		(enable, clk, reset, buffer_out, bitID, bitSample); 
 	characterBitCount	cBitCount 		(characterReceived, SRclk, bitID, bitSample, clk, reset, bitStream, enable);
-
-	assign data_out = SR_out;
-	assign charReceived = characterReceived;
 
 endmodule

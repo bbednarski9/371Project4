@@ -13,6 +13,8 @@ module serial_buffer (clk, reset, data_in, data_out);
 	output 	data_out; 
 
 	reg Q;
+	
+	assign data_out = Q; 
 
 	always @(posedge clk or posedge reset) begin
 		if (reset) begin
@@ -22,7 +24,5 @@ module serial_buffer (clk, reset, data_in, data_out);
 			Q <= data_in;
 		end
 	end
-
-	assign data_out = Q; 
 
 endmodule 

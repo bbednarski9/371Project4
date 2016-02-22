@@ -30,6 +30,7 @@ module characterBitCount(charReceived, SRclk, BIC, BSC, clk, reset, bitStream, e
 	// assign BIC = 4'b0;
 	// assign BSC = 4'b0;
 	
+	
 	always@(posedge clk)
 		begin
 			BIC[3:0] = combinedCounter[7:4];
@@ -47,22 +48,15 @@ module characterBitCount(charReceived, SRclk, BIC, BSC, clk, reset, bitStream, e
 						SRclk = 1'b1; 
 					else // (4'b0111 != BSC)
 						SRclk = 1'b0;
-					if((combinedCounter[7:4] == 4'b1000) & (combinedCounter[3:0] == 4'b1111))
+					if((combinedCounter[7:4] == 4'b1000) & (combinedCounter[3:0] == 4'b1000))
 						charReceived = 1'b1;
 					combinedCounter = combinedCounter + 8'b1;
 				end
 			else // !enable
 				begin
 					SRclk = 1'b0;
-					if (combinedCounter[7:4] == 4'b1000)
-						begin
-							charReceived = 1'b1;
-							combinedCounter = 8'b0;
-						end
-					else // 4'b1001 != BIC
-						begin
-							charReceived = 1'b0;
-						end			
+					charReceived = 1'b0;
+					combinedCounter = 8'b0;		
 				end
 			//default: combinedCounter = 8'bx;
 		end
