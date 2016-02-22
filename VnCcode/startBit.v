@@ -23,7 +23,7 @@ module startBit(enable, clk, reset, bitStream, BIC, BSC);
 						ns = ENABLE;
 					else
 						ns = DISABLE;
-			ENABLE: if ((BIC == 4'b1001) && (BSC == 4'b1111) && bitStream == 1) 
+			ENABLE: if ((BIC == 4'b1000) && (BSC == 4'b1111) && bitStream == 1) 
 					// Will turn the enable off when at the end of the last bit in sequence
 						ns = DISABLE;
 					else
