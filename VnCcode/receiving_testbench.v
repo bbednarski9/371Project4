@@ -58,33 +58,17 @@ module Tester (clk, reset, data_in, data_out);
 		#(32*stimDelay) data_in = 1'b1;
 		#(32*stimDelay) data_in = 1'b1;
 		#(32*stimDelay) data_in = 1'b0;	// (start bit) INPUT SIGNAL: (msb) 0110100101 (lsb)
-		//#(16*stimDelay);
 		#(32*stimDelay) data_in = 1'b1;	// (start of data)
-		//#(16*stimDelay);
 		#(32*stimDelay) data_in = 1'b1;
-		//#(16*stimDelay);
 		#(32*stimDelay) data_in = 1'b0;
-		//#(16*stimDelay);
 		#(32*stimDelay) data_in = 1'b1;
-		//#(16*stimDelay);
 		#(32*stimDelay) data_in = 1'b0;
-		//#(16*stimDelay);
 		#(32*stimDelay) data_in = 1'b0;
-		//#(16*stimDelay);
 		#(32*stimDelay) data_in = 1'b1;	// (end of data)
-		//#(16*stimDelay);
 		#(32*stimDelay) data_in = 1'b0;	// (parity bit)
-		//#(16*stimDelay);
 		#(32*stimDelay) data_in = 1'b1;	// (end bit)
-		#(32*stimDelay);
-		// #(2*stimDelay) data_in = 1'b1;	// (no data)
-		// #(32*stimDelay);
-		// #(2*stimDelay) data_in = 1'b1;	
-		// #(32*stimDelay);
-		// #(2*stimDelay) data_in = 1'b1;
-		// #(32*stimDelay);
-		// #(2*stimDelay) data_in = 1'b1;
-		// #(32*stimDelay);
+		#(32*stimDelay) data_in = 1'b1;
+		#(32*stimDelay) data_in = 1'b1;
 
 		$finish; 						// finish simulation
 	end
