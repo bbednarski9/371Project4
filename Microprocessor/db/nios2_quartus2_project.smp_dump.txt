@@ -1,0 +1,9 @@
+
+State Machine - |DE1_SoC|test:u0|test_cpu:cpu|test_cpu_nios2_oci:the_test_cpu_nios2_oci|test_cpu_jtag_debug_module_wrapper:the_test_cpu_jtag_debug_module_wrapper|test_cpu_jtag_debug_module_tck:the_test_cpu_jtag_debug_module_tck|DRsize
+Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
+DRsize.000 0 0 0 0 0 0 
+DRsize.001 0 0 0 0 1 1 
+DRsize.010 0 0 0 1 0 1 
+DRsize.011 0 0 1 0 0 1 
+DRsize.100 0 1 0 0 0 1 
+DRsize.101 1 0 0 0 0 1 
