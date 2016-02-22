@@ -17,17 +17,14 @@ module SIPO(data_out, clk, reset, data_in); // Serial In -> Parallel Out (10 bit
 	output [9:0] 	data_out;
 
 	reg [9:0] 		Q;
-	reg 			load;
-
-	assign data_out = Q; 
 	
 	always @(posedge clk or posedge reset) begin
 		if (reset) 
 			begin
-				Q <= 10'b0;
+				Q <= 10'b0000000000;
 			end
 		else 
-			begin // Shifts bits down in sequence. module holds 10 bits at a time
+			begin
 				Q[0] <= data_in;
 				Q[1] <= Q[0];
 				Q[2] <= Q[1];
@@ -40,6 +37,10 @@ module SIPO(data_out, clk, reset, data_in); // Serial In -> Parallel Out (10 bit
 				Q[9] <= Q[8];
 			end
 	end
+
+	assign data_out = Q; 
+
+
 endmodule 
 	
 /* 	always @(posedge clk or posedge reset) begin

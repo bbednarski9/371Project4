@@ -52,11 +52,11 @@ module Tester (clk, reset, t_enable, data_in, data_out, charSent, load_n);
 	always #stimDelay clk = ~clk;
 	
 	initial begin // Stimulus 
-		#(2*stimDelay) clk = 1'b0; reset = 1'b0; t_enable = 1'b0;  	// (no data)
+		#(2*stimDelay) clk = 1'b0; reset = 1'b0;  	// (no data)
 		#(2*stimDelay) reset = 1'b1; // (reset)
 		#(2*stimDelay) reset = 1'b0;
-		#(2*stimDelay) data_in = 10'b1111111111;
-		#(32*stimDelay) data_in = 10'b0110100101; t_enable = 1'b1; load_n = 1'b1; // (input data value)
+		#(2*stimDelay); t_enable = 1'b0;
+		#(32*stimDelay); data_in = 10'b0110100101; t_enable = 1'b1; load_n = 1'b1; // (input data value)
 		#(32*stimDelay); load_n = 1'b0; 
 		#(32*stimDelay);
 		#(32*stimDelay);	
@@ -69,6 +69,37 @@ module Tester (clk, reset, t_enable, data_in, data_out, charSent, load_n);
 		#(32*stimDelay);	
 		#(32*stimDelay);	
 		#(32*stimDelay);	
+		#(32*stimDelay); t_enable = 1'b0; 
+		#(32*stimDelay); data_in = 10'b0101100101; t_enable = 1'b1; load_n = 1'b1;
+		#(32*stimDelay); load_n = 1'b0;
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay); t_enable = 1'b0;
+		#(32*stimDelay); data_in = 10'b0100101011; t_enable = 1'b1; load_n = 1'b1;
+		#(32*stimDelay); load_n = 1'b0;
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+		#(32*stimDelay);	
+
 
 		$finish; 						// finish simulation
 	end

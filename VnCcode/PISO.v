@@ -29,8 +29,8 @@ module PISO(clk, reset, data_in, load_n, data_out); // Parallel in -> Serial Out
 		begin
 			if (reset) 
 				Q_out[9:0] <= 10'b1111111111;
-			else if (load_n) // export serially
-				Q_out = data_in;
+			else if (load_n) begin // export serially
+				Q_out = data_in; end 
 				bitStream = Q_out[9];
 				Q_out[9] = Q_out[8];
 				Q_out[8] = Q_out[7];

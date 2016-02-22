@@ -57,7 +57,7 @@ module Tester (clk, reset, data_in, data_out);
 		#(32*stimDelay) data_in = 1'b1;
 		#(32*stimDelay) data_in = 1'b1;
 		#(32*stimDelay) data_in = 1'b0;	// (start bit) INPUT SIGNAL: (msb) 0110100101 (lsb)
-		#(32*stimDelay) data_in = 1'b1;	// (start of data)
+		#(32*stimDelay) data_in = 1'b1;	// (start of data #1)
 		#(32*stimDelay) data_in = 1'b1;
 		#(32*stimDelay) data_in = 1'b0;
 		#(32*stimDelay) data_in = 1'b1;
@@ -69,7 +69,7 @@ module Tester (clk, reset, data_in, data_out);
 		#(32*stimDelay) data_in = 1'b1;
 		#(32*stimDelay) data_in = 1'b1;
 		#(32*stimDelay) data_in = 1'b1;
-		#(32*stimDelay) data_in = 1'b0; // (start of data)
+		#(32*stimDelay) data_in = 1'b0; // (start of data #2)
 		#(32*stimDelay) data_in = 1'b1;
 		#(32*stimDelay) data_in = 1'b0;
 		#(32*stimDelay) data_in = 1'b1;

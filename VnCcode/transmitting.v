@@ -8,7 +8,7 @@
 	inputs and outputs of the system.
 */
 
-`include "serial_buffer.v"
+`include "Tserial_buffer.v"
 `include "PISO.v"
 `include "TstartBit.v"
 `include "TcharacterBitCount.v"
@@ -23,7 +23,7 @@ module transmitting (clk, reset, t_enable, data_in, data_out, charSent, load_n);
 	wire		enable;
 	wire [3:0] 	bitID, bitSample;
 
-	serial_buffer 		output_buffer		(clk, reset, buffer_in, buffer_out);
+	Tserial_buffer 		output_buffer		(clk, reset, buffer_in, buffer_out);
 	PISO 				PISOshift_register 	(SRclk, reset, data_in, load_n, buffer_in);
 	TstartBit			transmit_enable		(enable, clk, reset, t_enable, bitID, bitSample); 
 	TcharacterBitCount	cBitCountTransmit 	(characterSent, SRclk, bitID, bitSample, clk, reset, enable);
