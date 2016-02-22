@@ -13,7 +13,7 @@
 `include "startBit.v"
 `include "characterBitCount.v"
 
-module receiving (clk, reset, data_in, data_out);
+module receiving (clk, reset, data_in, data_out, charReceived);
 
 	input 			clk, reset, data_in;
 	output [9:0] 	data_out;

@@ -17,10 +17,10 @@ module receiving_testbench;
 	wire 	 	charReceived;
 	
 	// declare an instance of the module
-	receiving receiving_test(clk, reset, data_in, data_out);
+	receiving receiving_test(clk, reset, data_in, data_out, charReceived);
 
 	// declare an instance of the Tester module
-	Tester test1(clk, reset, data_in, data_out);
+	Tester test1(clk, reset, data_in, data_out, charReceived);
 	
 	// file specifications for gtkwave
 	initial
@@ -35,7 +35,7 @@ module receiving_testbench;
 
 endmodule
 
-module Tester (clk, reset, data_in, data_out);
+module Tester (clk, reset, data_in, data_out, charReceived);
 
 	input [9:0] data_out;
 	input 		charReceived;
@@ -44,7 +44,7 @@ module Tester (clk, reset, data_in, data_out);
 	parameter stimDelay = 10;
 	
 	initial begin 
-		$display("\t\t clk reset data_in \t data_out \t Time");
+		$display("\t\t clk reset data_in \t data_out \t charReceived \t Time");
 		$monitor("\t %b \t %b \t %b \t %b \t %b", clk, reset, data_in, data_out, charReceived, $time);
 	end
 	
