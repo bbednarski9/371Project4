@@ -9,14 +9,16 @@ user interface.
 
 */
 
-module DE1_SoC(CLOCK_50, KEY, LEDR);
+module DE1_SoC(CLOCK_50, KEY, dataIn, dataOut, LEDR);
 	input CLOCK_50;
-	input KEY[0];
+	input KEY;
+	input dataIn;
+	output dataOut;
 	output [9:0] LEDR;
 	
 	// instantiate microprocessor
     nios_system u0 (
-        .reset_reset_n (~KEY[0]), // reset.reset_n
+        .reset_reset_n (~KEY), // reset.reset_n
         .ledr_export   (LEDR),   //  ledr.export
         .clk_clk       (CLOCK_50)        //   clk.clk
     );

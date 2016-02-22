@@ -1,0 +1,18 @@
+!SESSION 2016-02-21 22:00:11.330 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.help.base 4 4 2016-02-21 22:04:52.832
+!MESSAGE Help documentation could not be indexed completely.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2016-02-21 22:04:52.832
+!MESSAGE Help document /org.eclipse.mylyn.help.ui/doc/notices.html cannot be opened.
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-02-21 22:28:47.734
+!MESSAGE Indexed 'commInterface_bsp' (78 sources, 101 headers) in 1.01 sec: 2,155 declarations; 3,362 references; 108 unresolved inclusions; 5 syntax errors; 199 unresolved names (3.48%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-02-21 22:28:49.416
+!MESSAGE Indexed 'commInterface' (1 sources, 13 headers) in 0.03 sec: 1 declarations; 1 references; 14 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
