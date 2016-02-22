@@ -40,7 +40,6 @@ module Tester (clk, reset, data_in, data_out);
 	input [9:0] data_out;
 	input 		charReceived;
 	output reg 	clk, reset, data_in;
-
 	
 	parameter stimDelay = 10;
 	
@@ -54,7 +53,7 @@ module Tester (clk, reset, data_in, data_out);
 	initial begin // Stimulus 
 		#(2*stimDelay) clk = 1'b0; reset = 1'b0; data_in = 1'b1; // (no data)
 		#(2*stimDelay) reset = 1'b1;	// (reset)
-		#(2*stimDelay) reset = 1'b0;
+		#(2*stimDelay) reset = 1'b0; data_in = 1'b1;
 		#(32*stimDelay) data_in = 1'b1;
 		#(32*stimDelay) data_in = 1'b1;
 		#(32*stimDelay) data_in = 1'b0;	// (start bit) INPUT SIGNAL: (msb) 0110100101 (lsb)
@@ -67,6 +66,22 @@ module Tester (clk, reset, data_in, data_out);
 		#(32*stimDelay) data_in = 1'b1;	// (end of data)
 		#(32*stimDelay) data_in = 1'b0;	// (parity bit)
 		#(32*stimDelay) data_in = 1'b1;	// (end bit)
+		#(32*stimDelay) data_in = 1'b1;
+		#(32*stimDelay) data_in = 1'b1;
+		#(32*stimDelay) data_in = 1'b1;
+		#(32*stimDelay) data_in = 1'b0; // (start of data)
+		#(32*stimDelay) data_in = 1'b1;
+		#(32*stimDelay) data_in = 1'b0;
+		#(32*stimDelay) data_in = 1'b1;
+		#(32*stimDelay) data_in = 1'b1;
+		#(32*stimDelay) data_in = 1'b0;
+		#(32*stimDelay) data_in = 1'b0;
+		#(32*stimDelay) data_in = 1'b0;	// (end of data)
+		#(32*stimDelay) data_in = 1'b1; // (parity bit)
+		#(32*stimDelay) data_in = 1'b1; // (end bit)
+		#(32*stimDelay) data_in = 1'b1;
+		#(32*stimDelay) data_in = 1'b1;
+		#(32*stimDelay) data_in = 1'b1;
 		#(32*stimDelay) data_in = 1'b1;
 		#(32*stimDelay) data_in = 1'b1;
 

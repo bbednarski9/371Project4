@@ -20,10 +20,7 @@ module PISO(clk, reset, data_in, load_n, data_out); // Parallel in -> Serial Out
 	reg [9:0] 	Q_out;
 	reg 		bitStream;
 
-	initial
-		begin
-			Q_out = 10'b1111111111;
-		end
+	initial Q_out = 10'b1111111111;
 	
 	assign data_out = bitStream;
 	
@@ -31,20 +28,19 @@ module PISO(clk, reset, data_in, load_n, data_out); // Parallel in -> Serial Out
 	always @(posedge clk) 
 		begin
 			if (reset) 
-				Q_out[9:0] = 10'b1111111111;
+				Q_out[9:0] <= 10'b1111111111;
 			else if (load_n) // export serially
 				Q_out = data_in;
-				
-			bitStream = Q_out[9];
-			Q_out[9] = Q_out[8];
-			Q_out[8] = Q_out[7];
-			Q_out[7] = Q_out[6];
-			Q_out[6] = Q_out[5];
-			Q_out[5] = Q_out[4];
-			Q_out[4] = Q_out[3];
-			Q_out[3] = Q_out[2];
-			Q_out[2] = Q_out[1];
-			Q_out[1] = Q_out[0];
-			Q_out[0] = 1'b1; 
+				bitStream = Q_out[9];
+				Q_out[9] = Q_out[8];
+				Q_out[8] = Q_out[7];
+				Q_out[7] = Q_out[6];
+				Q_out[6] = Q_out[5];
+				Q_out[5] = Q_out[4];
+				Q_out[4] = Q_out[3];
+				Q_out[3] = Q_out[2];
+				Q_out[2] = Q_out[1];
+				Q_out[1] = Q_out[0];
+				Q_out[0] = 1'b1; 
 		end
 endmodule

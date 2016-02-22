@@ -10,8 +10,8 @@
 
 `include "serial_buffer.v"
 `include "PISO.v"
-`include "startBit.v"
-`include "characterBitCount.v"
+`include "TstartBit.v"
+`include "TcharacterBitCount.v"
 
 module transmitting (clk, reset, t_enable, data_in, data_out, charSent, load_n);
 
@@ -25,10 +25,10 @@ module transmitting (clk, reset, t_enable, data_in, data_out, charSent, load_n);
 
 	serial_buffer 		output_buffer		(clk, reset, buffer_in, buffer_out);
 	PISO 				PISOshift_register 	(SRclk, reset, data_in, load_n, buffer_in);
-	startBit			transmit_enable		(enable, clk, reset, t_enable, bitID, bitSample); 
-	characterBitCount	cBitCountTransmit 	(characterSent, SRclk, bitID, bitSample, clk, reset, bitStream, enable);
+	TstartBit			transmit_enable		(enable, clk, reset, t_enable, bitID, bitSample); 
+	TcharacterBitCount	cBitCountTransmit 	(characterSent, SRclk, bitID, bitSample, clk, reset, enable);
 
 	assign charSent = characterSent;
-	assign data_out = buffer_out;
+	assign data_out = buffer_in;
 
 endmodule
