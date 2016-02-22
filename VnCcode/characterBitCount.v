@@ -8,10 +8,10 @@ This verilog module combines the functionality of the Bit Identification Count,
 Bit Sample Count and S/R Clock Control top-level modules
 */
 
-module characterBitCount(charReceived, SRclk, BIC, BSC, clk, reset, bitStream, enable);
+module characterBitCount(charReceived, SRclk, BIC, BSC, clk, reset, enable);
 	output reg charReceived, SRclk;
 	output reg [3:0] BIC, BSC;
-	input clk, reset, bitStream, enable;
+	input clk, reset, enable;
 	
 	reg [7:0] combinedCounter;
 	

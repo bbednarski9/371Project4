@@ -12,15 +12,15 @@ which regulates the SR Clock Control and Character recieved signals.
 
 module characterBitCountTop;
 	// connect the two modules
-	wire clk, reset, bitStream, enable;
+	wire clk, reset, enable;
 	wire [3:0] BIC, BSC;
 	wire charReceived, SRclk;
 	
 	// declare an instance of the module
-	characterBitCount cbc(charReceived, SRclk, BIC, BSC, clk, reset, bitStream, enable);
+	characterBitCount cbc(charReceived, SRclk, BIC, BSC, clk, reset, enable);
 
 	// declare an instance of the Tester module
-	Tester myTester(charReceived, SRclk, BIC, BSC, clk, reset, bitStream, enable);
+	Tester myTester(charReceived, SRclk, BIC, BSC, clk, reset, enable);
 	
 	// file specifications for gtkwave
 	initial
@@ -35,25 +35,25 @@ module characterBitCountTop;
 
 endmodule
 
-module Tester (charReceived, SRclk, BIC, BSC, clk, reset, bitStream, enable);
+module Tester (charReceived, SRclk, BIC, BSC, clk, reset, enable);
 	input charReceived, SRclk;
 	input [3:0] BIC, BSC;
-	output clk, reset, bitStream, enable;
-	reg clk, reset, bitStream, enable;
+	output clk, reset, enable;
+	reg clk, reset, enable;
 	
 	parameter delay = 20;
 	
 	initial begin 
-		$display("\t\t charReceived SRclk BIC BSC clk reset bitStream enable Time");
-		$monitor("\t\t %b \t %b \t %b", charReceived, SRclk, BIC, BSC, clk, reset, bitStream, enable, $time);
+		$display("\t\t charReceived SRclk BIC BSC clk reset enable Time");
+		$monitor("\t\t %b \t %b \t %b", charReceived, SRclk, BIC, BSC, clk, reset, enable, $time);
 	end
 	
 	always #delay clk = ~clk;
 	
 	initial begin
-	#delay clk = 1'b0; enable = 1'b0; bitStream = 1'b0; reset = 1'b0;
+	#delay clk = 1'b0; enable = 1'b0; reset = 1'b0;
 	#(delay*2) reset = 1;
-	#delay reset = 0; bitStream = 1'b0;
+	#delay reset = 0;
 	#(delay*2) enable = 1;
 
 
