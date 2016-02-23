@@ -9,15 +9,8 @@ user interface.
 
 */
 
-`include "Tserial_buffer.v"
-`include "PISO.v"
-`include "TstartBit.v"
-`include "TcharacterBitCount.v"
-
-`include "Rserial_buffer.v"
-`include "SIPO.v"
-`include "startBit.v"
-`include "characterBitCount.v"
+`include "receiving.v"
+`include "transmitting.v"
 
 module DE1_SoC(CLOCK_50, KEY, dataIn, dataOut, LEDR);
 	input CLOCK_50;
@@ -36,22 +29,23 @@ module DE1_SoC(CLOCK_50, KEY, dataIn, dataOut, LEDR);
 	
 	// instantiate microprocessor
 	nios_system u0 (
-        .reset_reset_n                (~KEY),                //                 reset.reset_n
+        .reset_reset_n                (~KEY),                  //                 reset.reset_n
         .ledr_export                  (LEDR),                  //                  ledr.export
         .paralleltoprocessor_export   (parallelToProcessor),   //   paralleltoprocessor.export
-        .clk_clk                      (CLOCK_50),                      //                   clk.clk
+        .clk_clk                      (CLOCK_50),              //                   clk.clk
         .parallelfromprocessor_export (parallelFromProcessor), // parallelfromprocessor.export
         .transmitenable_export        (transmitEnable),        //        transmitenable.export
         .charactersent_export         (characterSent),         //         charactersent.export
         .load_export                  (load),                  //                  load.export
         .characterreceived_export     (characterReceived)      //     characterreceived.export
     );
+	 
 	
 	// instantiate receiving module
-	receiving r1 (clk, KEY, dataIn, parallelToProcessor, characterReceived);
+	receiving r1 (clk, ~KEY, dataIn, parallelToProcessor, characterReceived);
 	
 	// instantiate transmiting module
-	transmitting t1 (clk, KEY, transmitEnable, parallelFromProcessor, dataOut, characterSent, load);
+	transmitting t1 (clk, ~KEY, transmitEnable, parallelFromProcessor, dataOut, characterSent, load);
 	
 endmodule
 

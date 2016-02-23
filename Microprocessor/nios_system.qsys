@@ -28,6 +28,22 @@
          type = "int";
       }
    }
+   element DataIn
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
+      }
+   }
+   element DataOut
+   {
+      datum _sortIndex
+      {
+         value = "12";
+         type = "int";
+      }
+   }
    element LEDR
    {
       datum _sortIndex
@@ -72,7 +88,7 @@
    {
       datum baseAddress
       {
-         value = "12400";
+         value = "12432";
          type = "String";
       }
    }
@@ -124,11 +140,27 @@
          type = "int";
       }
    }
+   element TransmitEnable.s1
+   {
+      datum baseAddress
+      {
+         value = "12368";
+         type = "String";
+      }
+   }
+   element DataIn.s1
+   {
+      datum baseAddress
+      {
+         value = "12288";
+         type = "String";
+      }
+   }
    element CharacterSent.s1
    {
       datum baseAddress
       {
-         value = "12320";
+         value = "12352";
          type = "String";
       }
    }
@@ -141,23 +173,31 @@
       }
       datum baseAddress
       {
+         value = "12416";
+         type = "String";
+      }
+   }
+   element ParallelFromProcessor.s1
+   {
+      datum baseAddress
+      {
          value = "12384";
          type = "String";
       }
    }
-   element onchip_memory2_0.s1
+   element CharacterReceived.s1
    {
       datum baseAddress
       {
-         value = "4096";
+         value = "12320";
          type = "String";
       }
    }
-   element Load.s1
+   element ParallelToProcessor.s1
    {
       datum baseAddress
       {
-         value = "12304";
+         value = "12400";
          type = "String";
       }
    }
@@ -169,35 +209,27 @@
          type = "String";
       }
    }
-   element TransmitEnable.s1
+   element onchip_memory2_0.s1
+   {
+      datum baseAddress
+      {
+         value = "4096";
+         type = "String";
+      }
+   }
+   element DataOut.s1
+   {
+      datum baseAddress
+      {
+         value = "12304";
+         type = "String";
+      }
+   }
+   element Load.s1
    {
       datum baseAddress
       {
          value = "12336";
-         type = "String";
-      }
-   }
-   element CharacterReceived.s1
-   {
-      datum baseAddress
-      {
-         value = "12288";
-         type = "String";
-      }
-   }
-   element ParallelFromProcessor.s1
-   {
-      datum baseAddress
-      {
-         value = "12352";
-         type = "String";
-      }
-   }
-   element ParallelToProcessor.s1
-   {
-      datum baseAddress
-      {
-         value = "12368";
          type = "String";
       }
    }
@@ -266,6 +298,8 @@
    internal="CharacterReceived.external_connection"
    type="conduit"
    dir="end" />
+ <interface name="dataout" internal="DataOut.external_connection" />
+ <interface name="datain" internal="DataIn.external_connection" />
  <module kind="clock_source" version="14.0" enabled="1" name="clk_0">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -384,7 +418,7 @@
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x1000' end='0x2000' /><slave name='cpu.jtag_debug_module' start='0x2800' end='0x3000' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x1000' end='0x2000' /><slave name='cpu.jtag_debug_module' start='0x2800' end='0x3000' /><slave name='CharacterReceived.s1' start='0x3000' end='0x3010' /><slave name='Load.s1' start='0x3010' end='0x3020' /><slave name='CharacterSent.s1' start='0x3020' end='0x3030' /><slave name='TransmitEnable.s1' start='0x3030' end='0x3040' /><slave name='ParallelFromProcessor.s1' start='0x3040' end='0x3050' /><slave name='ParallelToProcessor.s1' start='0x3050' end='0x3060' /><slave name='LEDR.s1' start='0x3060' end='0x3070' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x3070' end='0x3078' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x1000' end='0x2000' /><slave name='cpu.jtag_debug_module' start='0x2800' end='0x3000' /><slave name='CharacterReceived.s1' start='0x3020' end='0x3030' /><slave name='Load.s1' start='0x3030' end='0x3040' /><slave name='CharacterSent.s1' start='0x3040' end='0x3050' /><slave name='TransmitEnable.s1' start='0x3050' end='0x3060' /><slave name='ParallelFromProcessor.s1' start='0x3060' end='0x3070' /><slave name='ParallelToProcessor.s1' start='0x3070' end='0x3080' /><slave name='LEDR.s1' start='0x3080' end='0x3090' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x3090' end='0x3098' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="deviceFamilyName" value="Cyclone V" />
   <parameter name="internalIrqMaskSystemInfo" value="32" />
@@ -578,6 +612,34 @@
   <parameter name="width" value="1" />
   <parameter name="clockRate" value="50000000" />
  </module>
+ <module kind="altera_avalon_pio" version="14.0" enabled="0" name="DataOut">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="1" />
+  <parameter name="clockRate" value="50000000" />
+ </module>
+ <module kind="altera_avalon_pio" version="14.0" enabled="0" name="DataIn">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="1" />
+  <parameter name="clockRate" value="50000000" />
+ </module>
  <connection
    kind="avalon"
    version="14.0"
@@ -628,7 +690,7 @@
  <connection kind="reset" version="14.0" start="clk_0.clk_reset" end="cpu.reset_n" />
  <connection kind="avalon" version="14.0" start="cpu.data_master" end="LEDR.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x3060" />
+  <parameter name="baseAddress" value="0x3080" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="reset" version="14.0" start="clk_0.clk_reset" end="LEDR.reset" />
@@ -639,7 +701,7 @@
    start="cpu.data_master"
    end="jtag_uart_0.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x3070" />
+  <parameter name="baseAddress" value="0x3090" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -671,7 +733,7 @@
    start="cpu.data_master"
    end="ParallelToProcessor.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x3050" />
+  <parameter name="baseAddress" value="0x3070" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="14.0" start="clk_0.clk" end="sys_clk_timer.clk" />
@@ -737,7 +799,7 @@
    start="cpu.data_master"
    end="ParallelFromProcessor.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x3040" />
+  <parameter name="baseAddress" value="0x3060" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -761,7 +823,7 @@
    start="cpu.data_master"
    end="TransmitEnable.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x3030" />
+  <parameter name="baseAddress" value="0x3050" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -781,7 +843,7 @@
    start="cpu.data_master"
    end="CharacterSent.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x3020" />
+  <parameter name="baseAddress" value="0x3040" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -793,7 +855,7 @@
  <connection kind="reset" version="14.0" start="clk_0.clk_reset" end="Load.reset" />
  <connection kind="avalon" version="14.0" start="cpu.data_master" end="Load.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x3010" />
+  <parameter name="baseAddress" value="0x3030" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -817,7 +879,7 @@
    start="cpu.data_master"
    end="CharacterReceived.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x3000" />
+  <parameter name="baseAddress" value="0x3020" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -825,6 +887,38 @@
    version="14.0"
    start="cpu.jtag_debug_module_reset"
    end="CharacterReceived.reset" />
+ <connection kind="clock" version="14.0" start="clk_0.clk" end="DataOut.clk" />
+ <connection kind="avalon" version="14.0" start="cpu.data_master" end="DataOut.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x3010" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="reset"
+   version="14.0"
+   start="clk_0.clk_reset"
+   end="DataOut.reset" />
+ <connection
+   kind="reset"
+   version="14.0"
+   start="cpu.jtag_debug_module_reset"
+   end="DataOut.reset" />
+ <connection kind="clock" version="14.0" start="clk_0.clk" end="DataIn.clk" />
+ <connection
+   kind="reset"
+   version="14.0"
+   start="clk_0.clk_reset"
+   end="DataIn.reset" />
+ <connection kind="avalon" version="14.0" start="cpu.data_master" end="DataIn.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x3000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="reset"
+   version="14.0"
+   start="cpu.jtag_debug_module_reset"
+   end="DataIn.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

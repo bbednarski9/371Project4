@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="nios_system" kind="nios_system" version="1.0" fabric="QSYS">
  <!-- Format version 14.0 200 (Future versions may contain additional information.) -->
- <!-- 2016.02.22.15:45:21 -->
+ <!-- 2016.02.22.20:35:43 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1456184721</value>
+  <value>1456202143</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -1607,7 +1607,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="dataSlaveMapParam">
    <type>java.lang.String</type>
-   <value><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x1000' end='0x2000' /><slave name='cpu.jtag_debug_module' start='0x2800' end='0x3000' /><slave name='CharacterReceived.s1' start='0x3000' end='0x3010' /><slave name='Load.s1' start='0x3010' end='0x3020' /><slave name='CharacterSent.s1' start='0x3020' end='0x3030' /><slave name='TransmitEnable.s1' start='0x3030' end='0x3040' /><slave name='ParallelFromProcessor.s1' start='0x3040' end='0x3050' /><slave name='ParallelToProcessor.s1' start='0x3050' end='0x3060' /><slave name='LEDR.s1' start='0x3060' end='0x3070' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x3070' end='0x3078' /></address-map>]]></value>
+   <value><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x1000' end='0x2000' /><slave name='cpu.jtag_debug_module' start='0x2800' end='0x3000' /><slave name='CharacterReceived.s1' start='0x3020' end='0x3030' /><slave name='Load.s1' start='0x3030' end='0x3040' /><slave name='CharacterSent.s1' start='0x3040' end='0x3050' /><slave name='TransmitEnable.s1' start='0x3050' end='0x3060' /><slave name='ParallelFromProcessor.s1' start='0x3060' end='0x3070' /><slave name='ParallelToProcessor.s1' start='0x3070' end='0x3080' /><slave name='LEDR.s1' start='0x3080' end='0x3090' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x3090' end='0x3098' /></address-map>]]></value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2206,7 +2206,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>LEDR</moduleName>
     <slaveName>s1</slaveName>
     <name>LEDR.s1</name>
-    <baseAddress>12384</baseAddress>
+    <baseAddress>12416</baseAddress>
     <span>16</span>
    </memoryBlock>
    <memoryBlock>
@@ -2214,7 +2214,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>jtag_uart_0</moduleName>
     <slaveName>avalon_jtag_slave</slaveName>
     <name>jtag_uart_0.avalon_jtag_slave</name>
-    <baseAddress>12400</baseAddress>
+    <baseAddress>12432</baseAddress>
     <span>8</span>
    </memoryBlock>
    <memoryBlock>
@@ -2222,7 +2222,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>ParallelToProcessor</moduleName>
     <slaveName>s1</slaveName>
     <name>ParallelToProcessor.s1</name>
-    <baseAddress>12368</baseAddress>
+    <baseAddress>12400</baseAddress>
     <span>16</span>
    </memoryBlock>
    <memoryBlock>
@@ -2230,7 +2230,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>ParallelFromProcessor</moduleName>
     <slaveName>s1</slaveName>
     <name>ParallelFromProcessor.s1</name>
-    <baseAddress>12352</baseAddress>
+    <baseAddress>12384</baseAddress>
     <span>16</span>
    </memoryBlock>
    <memoryBlock>
@@ -2238,7 +2238,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>TransmitEnable</moduleName>
     <slaveName>s1</slaveName>
     <name>TransmitEnable.s1</name>
-    <baseAddress>12336</baseAddress>
+    <baseAddress>12368</baseAddress>
     <span>16</span>
    </memoryBlock>
    <memoryBlock>
@@ -2246,7 +2246,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>CharacterSent</moduleName>
     <slaveName>s1</slaveName>
     <name>CharacterSent.s1</name>
-    <baseAddress>12320</baseAddress>
+    <baseAddress>12352</baseAddress>
     <span>16</span>
    </memoryBlock>
    <memoryBlock>
@@ -2254,7 +2254,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>Load</moduleName>
     <slaveName>s1</slaveName>
     <name>Load.s1</name>
-    <baseAddress>12304</baseAddress>
+    <baseAddress>12336</baseAddress>
     <span>16</span>
    </memoryBlock>
    <memoryBlock>
@@ -2262,7 +2262,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>CharacterReceived</moduleName>
     <slaveName>s1</slaveName>
     <name>CharacterReceived.s1</name>
-    <baseAddress>12288</baseAddress>
+    <baseAddress>12320</baseAddress>
     <span>16</span>
    </memoryBlock>
   </interface>
@@ -10497,7 +10497,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x3060</value>
+   <value>0x3080</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -10602,7 +10602,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x3070</value>
+   <value>0x3090</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -10796,7 +10796,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x3050</value>
+   <value>0x3070</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -11036,7 +11036,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x3040</value>
+   <value>0x3060</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -11168,7 +11168,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x3030</value>
+   <value>0x3050</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -11300,7 +11300,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x3020</value>
+   <value>0x3040</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -11432,7 +11432,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x3010</value>
+   <value>0x3030</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -11564,7 +11564,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x3000</value>
+   <value>0x3020</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
