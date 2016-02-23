@@ -9,6 +9,7 @@ user interface.
 
 */
 
+<<<<<<< HEAD
 `include "Tserial_buffer.v"
 `include "PISO.v"
 `include "TstartBit.v"
@@ -18,6 +19,10 @@ user interface.
 `include "SIPO.v"
 `include "startBit.v"
 `include "characterBitCount.v"
+=======
+`include "receiving.v"
+`include "transmitting.v"
+>>>>>>> origin/master
 
 module DE1_SoC(CLOCK_50, KEY, dataIn, dataOut, LEDR);
 	input CLOCK_50;
@@ -36,22 +41,37 @@ module DE1_SoC(CLOCK_50, KEY, dataIn, dataOut, LEDR);
 	
 	// instantiate microprocessor
 	nios_system u0 (
+<<<<<<< HEAD
         .reset_reset_n                (~KEY),                //                 reset.reset_n
         .ledr_export                  (LEDR),                  //                  ledr.export
         .paralleltoprocessor_export   (parallelToProcessor),   //   paralleltoprocessor.export
         .clk_clk                      (CLOCK_50),                      //                   clk.clk
+=======
+        .reset_reset_n                (~KEY),                  //                 reset.reset_n
+        .ledr_export                  (LEDR),                  //                  ledr.export
+        .paralleltoprocessor_export   (parallelToProcessor),   //   paralleltoprocessor.export
+        .clk_clk                      (CLOCK_50),              //                   clk.clk
+>>>>>>> origin/master
         .parallelfromprocessor_export (parallelFromProcessor), // parallelfromprocessor.export
         .transmitenable_export        (transmitEnable),        //        transmitenable.export
         .charactersent_export         (characterSent),         //         charactersent.export
         .load_export                  (load),                  //                  load.export
         .characterreceived_export     (characterReceived)      //     characterreceived.export
     );
+	 
 	
 	// instantiate receiving module
+<<<<<<< HEAD
 	receiving r1 (clk, KEY, dataIn, parallelToProcessor, characterReceived);
 	
 	// instantiate transmiting module
 	transmitting t1 (clk, KEY, transmitEnable, parallelFromProcessor, dataOut, characterSent, load);
+=======
+	receiving r1 (clk, ~KEY, dataIn, parallelToProcessor, characterReceived);
+	
+	// instantiate transmiting module
+	transmitting t1 (clk, ~KEY, transmitEnable, parallelFromProcessor, dataOut, characterSent, load);
+>>>>>>> origin/master
 	
 endmodule
 

@@ -82,8 +82,6 @@
 
 #define switches (volatile char *) 0x0003010
 #define leds (char *) 0x0003000
-
-
 void main()
 {
 	while (1)
@@ -93,32 +91,15 @@ void main()
 
 
 
-void main()
+int main()
 { 
-	alt_putstr("Hello, please press a key to begin... \n");
-	char input = alt_getchar();
+  alt_putstr("Hello! Press a character to begin...\n");
+  char input = alt_getchar();
 
-	char recievedChar;
-	char sendChar;
-	char targetAdd;
-	char sourceAdd;
-	input = 'A';
+  alt_putstr("");
 
+  /* Event loop never exits. */
+  while (1);
 
-	while (input != 'E') {
-		if (input == 'M'){
-			alt_putstr("Please press 'R' for receiving\n");
-			alt_putstr("Please press 'T' for transmission\n");
-			alt_putstr("Please press 'M' to return to this menu\n");
-			alt_putstr("Please press 'E' to exit\n");
-			input = alt_getchar();
-		} else if (input == 'R'){
-			recievedChar = IORD_ALTERA_AVALON_PIO_DATA(sourceAdd);
-			recievedChar = recievedChar + '0';
-			alt_putstr(recievedChar);
-		} else if (input == 'T') {
-			IOWR_ALTERA_PIO_DATA(targetAdd, sendChar);
-
-		}
-	}
+  return 0;
 }

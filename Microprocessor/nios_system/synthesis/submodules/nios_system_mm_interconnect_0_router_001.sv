@@ -138,6 +138,7 @@ module nios_system_mm_interconnect_0_router_001
     // -------------------------------------------------------
     localparam PAD0 = log2ceil(64'h2000 - 64'h1000); 
     localparam PAD1 = log2ceil(64'h3000 - 64'h2800); 
+<<<<<<< HEAD
     localparam PAD2 = log2ceil(64'h3010 - 64'h3000); 
     localparam PAD3 = log2ceil(64'h3020 - 64'h3010); 
     localparam PAD4 = log2ceil(64'h3030 - 64'h3020); 
@@ -146,12 +147,26 @@ module nios_system_mm_interconnect_0_router_001
     localparam PAD7 = log2ceil(64'h3060 - 64'h3050); 
     localparam PAD8 = log2ceil(64'h3070 - 64'h3060); 
     localparam PAD9 = log2ceil(64'h3078 - 64'h3070); 
+=======
+    localparam PAD2 = log2ceil(64'h3030 - 64'h3020); 
+    localparam PAD3 = log2ceil(64'h3040 - 64'h3030); 
+    localparam PAD4 = log2ceil(64'h3050 - 64'h3040); 
+    localparam PAD5 = log2ceil(64'h3060 - 64'h3050); 
+    localparam PAD6 = log2ceil(64'h3070 - 64'h3060); 
+    localparam PAD7 = log2ceil(64'h3080 - 64'h3070); 
+    localparam PAD8 = log2ceil(64'h3090 - 64'h3080); 
+    localparam PAD9 = log2ceil(64'h3098 - 64'h3090); 
+>>>>>>> origin/master
     // -------------------------------------------------------
     // Work out which address bits are significant based on the
     // address range of the slaves. If the required width is too
     // large or too small, we use the address field width instead.
     // -------------------------------------------------------
+<<<<<<< HEAD
     localparam ADDR_RANGE = 64'h3078;
+=======
+    localparam ADDR_RANGE = 64'h3098;
+>>>>>>> origin/master
     localparam RANGE_ADDR_WIDTH = log2ceil(ADDR_RANGE);
     localparam OPTIMIZED_ADDR_H = (RANGE_ADDR_WIDTH > PKT_ADDR_W) ||
                                   (RANGE_ADDR_WIDTH == 0) ?
@@ -214,6 +229,7 @@ module nios_system_mm_interconnect_0_router_001
     if ( {address[RG:PAD1],{PAD1{1'b0}}} == 14'h2800   ) begin
             src_channel = 10'b0000000001;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 7;
+<<<<<<< HEAD
     end
 
     // ( 0x3000 .. 0x3010 )
@@ -248,18 +264,64 @@ module nios_system_mm_interconnect_0_router_001
 
     // ( 0x3050 .. 0x3060 )
     if ( {address[RG:PAD7],{PAD7{1'b0}}} == 14'h3050  && read_transaction  ) begin
+=======
+    end
+
+    // ( 0x3020 .. 0x3030 )
+    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 14'h3020  && read_transaction  ) begin
+            src_channel = 10'b1000000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;
+    end
+
+    // ( 0x3030 .. 0x3040 )
+    if ( {address[RG:PAD3],{PAD3{1'b0}}} == 14'h3030   ) begin
+            src_channel = 10'b0100000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
+    end
+
+    // ( 0x3040 .. 0x3050 )
+    if ( {address[RG:PAD4],{PAD4{1'b0}}} == 14'h3040   ) begin
+            src_channel = 10'b0010000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
+    end
+
+    // ( 0x3050 .. 0x3060 )
+    if ( {address[RG:PAD5],{PAD5{1'b0}}} == 14'h3050   ) begin
+            src_channel = 10'b0001000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 6;
+    end
+
+    // ( 0x3060 .. 0x3070 )
+    if ( {address[RG:PAD6],{PAD6{1'b0}}} == 14'h3060   ) begin
+            src_channel = 10'b0000100000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 4;
+    end
+
+    // ( 0x3070 .. 0x3080 )
+    if ( {address[RG:PAD7],{PAD7{1'b0}}} == 14'h3070  && read_transaction  ) begin
+>>>>>>> origin/master
             src_channel = 10'b0000010000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 5;
     end
 
+<<<<<<< HEAD
     // ( 0x3060 .. 0x3070 )
     if ( {address[RG:PAD8],{PAD8{1'b0}}} == 14'h3060   ) begin
+=======
+    // ( 0x3080 .. 0x3090 )
+    if ( {address[RG:PAD8],{PAD8{1'b0}}} == 14'h3080   ) begin
+>>>>>>> origin/master
             src_channel = 10'b0000000100;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
     end
 
+<<<<<<< HEAD
     // ( 0x3070 .. 0x3078 )
     if ( {address[RG:PAD9],{PAD9{1'b0}}} == 14'h3070   ) begin
+=======
+    // ( 0x3090 .. 0x3098 )
+    if ( {address[RG:PAD9],{PAD9{1'b0}}} == 14'h3090   ) begin
+>>>>>>> origin/master
             src_channel = 10'b0000001000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 8;
     end

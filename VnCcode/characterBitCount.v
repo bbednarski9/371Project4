@@ -43,12 +43,12 @@ module characterBitCount(charReceived, SRclk, BIC, BSC, clk, reset, enable);
 				end
 			else if (enable)
 				begin
-					charReceived = 1'b0;
+					//charReceived = 1'b0;
 					if (combinedCounter[3:0] == 4'b0111) // BSC Middle of the bit
 						SRclk = 1'b1; 
 					else // (4'b0111 != BSC)
 						SRclk = 1'b0;
-					if((combinedCounter[7:4] == 4'b1001) & (combinedCounter[3:0] == 4'b1000))
+					if ((combinedCounter[7:4] == 4'b1001) & (combinedCounter[3:0] == 4'b1111)) 
 						charReceived = 1'b1;
 					combinedCounter = combinedCounter + 8'b1;
 				end

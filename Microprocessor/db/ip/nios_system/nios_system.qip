@@ -1,21 +1,30 @@
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_TOOL_NAME "Qsys"
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_TOOL_VERSION "14.0"
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_TOOL_ENV "Qsys"
+<<<<<<< HEAD
 set_global_assignment -library "nios_system" -name SOPCINFO_FILE [file join $::quartus(quartus_rootpath) "qdesigns/371Project4/Microprocessor/nios_system.sopcinfo"]
 set_global_assignment -entity "nios_system" -library "nios_system" -name SLD_INFO "QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1456184572"
+=======
+set_global_assignment -library "nios_system" -name SOPCINFO_FILE [file join $::quartus(quartus_rootpath) "qdesigns/371Project4Personal/nios_system.sopcinfo"]
+set_global_assignment -entity "nios_system" -library "nios_system" -name SLD_INFO "QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1456195018"
+>>>>>>> origin/master
 set_global_assignment -library "nios_system" -name SLD_FILE [file join $::quartus(qip_path) "nios_system.regmap"]
 set_global_assignment -library "nios_system" -name SLD_FILE [file join $::quartus(qip_path) "nios_system.debuginfo"]
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_TARGETED_DEVICE_FAMILY "Cyclone V"
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_GENERATED_DEVICE_FAMILY "{Cyclone V}"
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_QSYS_MODE "UNKNOWN"
 set_global_assignment -name SYNTHESIS_ONLY_QIP ON
-set_global_assignment -library "nios_system" -name MISC_FILE [file join $::quartus(quartus_rootpath) "qdesigns/371Project4/Microprocessor/nios_system.qsys"]
+set_global_assignment -library "nios_system" -name MISC_FILE [file join $::quartus(quartus_rootpath) "qdesigns/371Project4Personal/nios_system.qsys"]
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_COMPONENT_NAME "bmlvc19zeXN0ZW0="
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_COMPONENT_DISPLAY_NAME "bmlvc19zeXN0ZW0="
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_COMPONENT_REPORT_HIERARCHY "On"
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_COMPONENT_INTERNAL "Off"
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_COMPONENT_VERSION "MS4w"
+<<<<<<< HEAD
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTQ1NjE4NDU3Mg==::QXV0byBHRU5FUkFUSU9OX0lE"
+=======
+set_global_assignment -entity "nios_system" -library "nios_system" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTQ1NjE5NTAxOA==::QXV0byBHRU5FUkFUSU9OX0lE"
+>>>>>>> origin/master
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfRkFNSUxZ::Q3ljbG9uZSBW::QXV0byBERVZJQ0VfRkFNSUxZ"
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0U=::NUNTRU1BNUYzMUM2::QXV0byBERVZJQ0U="
 set_global_assignment -entity "nios_system" -library "nios_system" -name IP_COMPONENT_PARAMETER "QVVUT19DTEtfQ0xPQ0tfUkFURQ==::LTE=::QXV0byBDTE9DS19SQVRF"
